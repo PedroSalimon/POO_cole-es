@@ -1,14 +1,12 @@
-package Main;
-
-import Aluno.Aluno;
+package Aluno;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
-public class main2 {
+public class main {
     public static void main(String[] args) {
         List<Aluno> lista = new ArrayList<>();
-
 
         lista.add(new Aluno(1, "Pedro", "SI"));
         lista.add(new Aluno(2, "Lucas", "PDA"));
@@ -16,9 +14,13 @@ public class main2 {
         lista.add(new Aluno(4, "Cesar", "SI"));
         lista.add(new Aluno(5, "Cesar", "ADM"));
 
-        lista.forEach(aluno -> {
+        lista.sort(Comparator.comparing(Aluno::getNome)
+                .thenComparing(Aluno::getRm));
+
+        lista.forEach( aluno -> {
             System.out.println(aluno);
         });
+
 
     }
 }
